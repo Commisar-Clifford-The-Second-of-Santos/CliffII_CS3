@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+    *{
+     background-color: grey;
+
+	}
+
+
+	.first:link{
+     color: white;
+     background-color: orange;
+     text-decoration: none; 
+     font-size: 50px;
+     margin-right: 40px;
+     border-top-style: none;
+     border-right-style: none;
+     border-bottom-style: none;
+     border-left-style: solid;
+     border-width: 5px;
+     border-color: red;
+     font-family: sans-serif;
+	}
+    .first:visited{
+     color: grey;
+     background-color: cyan;
+     border-left-style: solid;
+     border-width: 5px;
+     border-color: blue;
+	}
+    .first:hover{
+     color: white;
+     background-color: red;
+     border-left-style: solid;
+     border-width: 5px;
+     border-color: black;
+	}
+    .first:active{
+     color: white;
+     background-color: grey;
+     border-left-style: solid;
+     border-width: 5px;
+     border-color: white; 
+	}
+
+
+    .second:link{
+     color: white;
+     background-color: purple;
+     text-decoration: none; 
+     font-size: 50px;
+     margin-right: 40px;
+     border-top-style: none;
+     border-right-style: none;
+     border-bottom-style: none;
+     border-left-style: solid;
+     border-width: 5px;
+     border-color: blue;
+     font-family: sans-serif;
+
+	}
+    .second:visited{
+     color: white;
+     background-color: blue;
+     border-left-style: solid;
+     border-width: 5px;
+     border-color: purple;
+	}
+    .second:hover{
+     color: white;
+     background-color: red;
+     border-left-style: solid;
+     border-width: 5px;
+     border-color: black;
+	}
+    .second:active{
+     color: white;
+     background-color: grey;
+     border-left-style: solid;
+     border-width: 5px;
+     border-color: white;
+	}
+
+   
+   #div1{
+   width: 200px;
+   height: 200px;
+   background-color: white;
+   margin-bottom: 30px;
+   margin-top: 50px;
+   font-size: 30px;
+   text-align: center;
+   font-family: Arial, sans-serif;
+   }
+
+
+   #div2{
+   width: 200px;
+   height: 200px;
+   background-color: white;
+   font-size: 30px;
+   text-align: center;
+   font-family: Arial, sans-serif;
+   }
+
+    #div1:target{
+   background-color: green;
+   color: white;
+   border-width:10px;
+   border-style:dashed;
+   border-color: red;
+   }
+
+   #div2:target{
+   background-color: red;
+   color: white;
+   border-width:10px;
+   border-style:dotted;
+   border-color: green;
+   }
+
+    </style>
+</head>
+<body>
+
+<a class="first" href="#div1">Correct</a>
+<a class="second" href="#div2">Wrong</a>
+<div id="div1">Correct</div>
+<div id="div2">Wrong</div>
+
+</body>
+</html>
