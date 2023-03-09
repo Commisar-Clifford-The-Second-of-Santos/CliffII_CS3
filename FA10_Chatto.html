@@ -22,32 +22,22 @@
 
             switch(numberPlace){
                 case 3:
-                    hundreds = generatedNumber[0];
-                    tens = generatedNumber[1];
+                    hundreds = generatedNumber[0] * 100;
+                    tens = generatedNumber[1] * 10;
                     ones = generatedNumber[2];
-                    document.getElementById("secondLine").innerHTML = "Breakdown: " + hundreds + "00, " + tens + "0, " + ones;
-                    if(tens == 0){
-                        document.getElementById("secondLine").innerHTML = "Breakdown: " + hundreds + "00, " + tens + ", " + ones;
-                    }if(hundreds == 0){
-                        document.getElementById("secondLine").innerHTML = "Breakdown: " + hundreds  + tens + "0, "+ ones;
-                    }
                     break;
                 case 2:
-                    tens = generatedNumber[0];
+                    hundreds = 0;
+                    tens = generatedNumber[0] * 10;
                     ones = generatedNumber[1];
-                    if(tens == 0){
-                        document.getElementById("secondLine").innerHTML = "Breakdown: 0, " +  tens + ones;
-                    }
-                    document.getElementById("secondLine").innerHTML = "Breakdown: 0, "   + tens + "0, " + ones;
                     break;
                 case 1:
-                    ones = generatedNumber[0];
-                    document.getElementById("secondLine").innerHTML = "Breakdown: 0, 0, " + ones;               
+                    hundreds = 0;
+                    tens = 0;
+                    ones = generatedNumber[0]; 
                     break;
             }
-            
-            // I think maging more efficient ang code if nag gamit ako ng arithmetic instead
-            
+            document.getElementById("secondLine").innerHTML = "Breakdown: " + hundreds + ", "+ tens + ", " + ones;
         </script>
     </body>
 </html>
