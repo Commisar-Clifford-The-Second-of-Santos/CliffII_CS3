@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WANNA KNOW IF YOUR TRAINGLE IS ______</title>
+    </head>
+    <body>
+
+        <script>
+            
+            main();
+
+            function main(){
+            a = prompt("Would You Kindly Input Triangle Side A", "");
+            b = prompt("Would You Kindly Input Triangle Side B", "");
+            c = prompt("Would You Kindly Input Triangle Side C", "");
+            
+            determineTriangle(a, b, c);
+            }
+
+
+            function determineTriangle(a, b, c){
+            if(a == b && b == c){
+                alert("The triangle is EQUILATERAL!!");
+            }else if(a == b && b != c){
+                alert("The triangle is ISOSCELES!!");
+            }else if(a != b && b == c){
+                alert("The triangle is ISOSCELES!!");
+            }else{
+                alert("The triangle is SCALENE!!");
+            }
+        }
+
+
+
+        </script>
+
+    </body>
+
+</html>    
