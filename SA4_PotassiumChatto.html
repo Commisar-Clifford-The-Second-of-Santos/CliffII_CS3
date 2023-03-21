@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Car Deprecation Calculator</title>
+        <meta name="description" content="Summative Test Question 4">
+        <meta name="author" content="Cliff E. Chatto II">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        	body {background: lightblue; 
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            span {color: maroon}
+        </style>
+
+	</head>
+<body>
+	<h1> Car Depreciation Calculator </h1>
+	<h2> Your Car Model: <span id="model"> </span></h2>
+    <h2> Car Cost: <span id="cost"> </span></h2>
+    <h2> Age of your Car: <span id="age"> </span></h2>
+    <h2> Good Condition?: <span id="condition"> </span></h2>
+    <h2> Your Car's Current Market Value <span id="currentvalue"> </span></h2>
+    
+    <button onclick="enterCar()"> Enter your Car information </button>
+    <script>
+    	/* do not forget to place comments on the script */
+    	function enterCar() {
+        	carmodel = prompt("Enter Car Model");
+            carcost = prompt("Enter Cost of the Car");
+            carage = prompt("How old is your car?");
+            good = confirm("In Good Condition? Ok for Yes / Cancel for No");
+            model.innerHTML = carmodel;
+            cost.innerHTML = carcost;
+            age.innerHTML = carage;
+            condition.innerHTML = (good) ? "Yes" : "No";      
+            computeMarketValue(parseFloat(carcost),parseFloat(carage), good); // create this function
+        }
+        function computeMarketValue(theCost, theAge, theCondition){//this function is used to compute the market value
+            console.log(theCondition);
+            var CMV = 0;// this variable stores the computed value of the car
+        
+            if(theAge > 10){
+                    CMV = 70000;
+                }else if(theAge >= 8){
+                    CMV = 100000;
+                }else if(theAge >= 5){
+                    CMV = theCost*0.75;//to get 75% of the car's value
+                }else if(theAge < 5){
+                    CMV = theCost*0.5;//to get 50% of the car's value
+                }
+                checkCondition();//this function will check whether the car is is good condition or not
+
+
+
+            /*if the car is in bad condition, this function will subtract 10% from the computed value*/
+            function checkCondition(){
+                if(theCondition == true){
+                document.getElementById("currentvalue").innerHTML = CMV;
+                }else{
+                    var subtractedValue = CMV - (CMV*0.1);//this variable is the value of the car if it is in bad condition
+                    document.getElementById("currentvalue").innerHTML = subtractedValue;
+                }
+            
+            }
+
+        }
+
+    </script>
+    
+</body>
+</html>

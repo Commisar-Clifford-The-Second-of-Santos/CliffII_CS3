@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Toss coin</title> 
+        <meta charset="UTF-8">
+        <meta name="description" content="Summative Test Question 1">
+        <meta name="author" content="Cliff E. Chatto II">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+        	body {background: navy; 
+            	text-align: center;
+            	font-family: arial;
+                color: white;
+            }
+            button {padding: 10px; background:violet }
+            span {color: yellow}
+            #coin, h5 {color: yellow; }
+            #coin { background: gray; 
+            	width: 25px; 
+                height: 25px;
+                padding: 25px;          
+                border: 5px dashed darkgray;
+                border-radius: 50%;
+                margin: 0 auto;
+                
+            }
+            #coin:active{
+                border-color: yellow; 
+            }
+            
+        </style>
+
+	</head> 
+	<body onload="getGuess()"> 
+        <h1> Heads or Tail? </h1>
+        <h2 onclick="getGuess()"> Click here to change your Guess: <span id="guess"> </span></h2>
+        <h2 id="coin" onclick="coinClick()"> H </span></h2>   
+        <h5> Click on the coin above to randomly change its face and compare with your guess </h5> 
+        <script>
+            /* do not forget to include comments to this script */
+            //I added a "#coin:active" on the stylesheet to let the person know that they have clicked the coin
+
+            var uGuess; //to store the choice of the person, this will be usefull when comparing if the person's choice is right or not
+            var getGuess = function() {
+                uGuess = prompt("Type H for head and T for tail","");
+                uGuess.toUpperCase; // converting to an uppercase letter
+                (uGuess != "H" && uGuess != "T") ?	alert("Wrong Input"):
+                    guess.innerHTML = uGuess; 
+            }
+            var actual; //to have a variable to store if its either "H" or "T"
+            var coinClick = function(){
+                var randomGuess = Math.random();
+                if(randomGuess < 0.5){      //if the randomized number is below 0.5, it will choose "H", otherwise, it will choose "T" 
+                    actual = "H";
+                    document.getElementById("coin").innerHTML = actual;
+                    
+                }else{
+                    actual = "T"
+                    document.getElementById("coin").innerHTML = actual;
+                }
+                setTimeout(compare,150); /*this is to set a delay between randomized coin guess and the comparison of guesses,
+                this can make the pressing of the button more natural and satisfying*/
+            }
+
+            function compare(){
+                if(actual == uGuess){
+                        alert("Your guess is correct");
+                    }else{
+                        alert("Your guess is incorrect");
+                    }
+            }
+        </script>
+	</body>
+</html>
+

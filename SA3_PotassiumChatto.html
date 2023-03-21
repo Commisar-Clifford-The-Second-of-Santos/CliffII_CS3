@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Choose Background Color</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Summative Test Question 3">
+        <meta name="author" content="Cliff E. Chatto II">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        	* { box-sizing: border-box; 
+            	font-family: arial; 
+                color: white;
+            }           
+            body {background:navy}
+            ul {
+            	list-style-type: none;
+                width: 100px;
+                padding: 0;
+                border: 1px solid black;
+                background: gray;
+            }
+            li {width: 100%;
+            	border-bottom: 1px solid black;
+                padding: 5px;
+            }
+            li:nth-child(3) {border:none}
+            a {	text-decoration:none;
+            	display:block;
+                width: 100%;
+            }
+            li:nth-child(1):hover {background:purple}
+            li:nth-child(2):hover {background:navy}
+            li:nth-child(3):hover {background:maroon}
+            
+        </style>
+
+	</head>
+	<body>
+		<h2> Choose Background Color </h2>
+        <ul>
+        	<li><a href="#" onclick="changeBackground(1)"> Purple </a></li>
+            <li><a href="#" onclick="changeBackground(2)"> Navy </a></li>
+            <li><a href="#" onclick="changeBackground(3)"> Maroon </a></li>
+        </ul>
+		
+
+        <script>
+            /* do not forget to include comments to this script */
+           function changeBackground(colorNumber){//here is the function changeBackground with the parameter colorNumber
+            switch(colorNumber){// I used switch statement because its the most fitting for this type of problem
+                case 1:
+                document.body.style.backgroundColor = "purple";// these statements will change the background color of the html page
+                    break;
+                case 2:
+                document.body.style.backgroundColor = "navy";
+                    break;
+                case 3:
+                document.body.style.backgroundColor = "maroon";
+                    break;
+            }
+           }
+
+        </script>
+	</body>
+</html>
+

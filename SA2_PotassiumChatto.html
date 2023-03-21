@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Choose your Pokemon</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Summative Test Question 2">
+        <meta name="author" content="Cliff E. Chatto II">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        	* { box-sizing: border-box; font-family: arial; color: white;}
+            div {background: navy;
+            	width: 30%; 
+                text-align:center;
+           		width:250px; 
+                height: 250px; 
+           		margin: 0 auto; 
+                border: 1px solid black;
+                padding-left:1px; 
+                background: navy;
+             }
+            img {width: 65px; 
+            	height:74px; 
+                border: 1px solid black; 
+                float:left; 
+                margin: 1px
+            }
+			img:first-of-type {	/*pertaining to pikachu*/
+            	width: 100px; 
+                height: 150px; 
+                border: 1px solid black; 
+                background: lavender; 
+                padding-left: 10px; 
+                margin-right:10px
+            }
+			img:hover{cursor:pointer;
+            	background: lavender; 
+            }
+        </style>
+
+	</head>
+	<body>
+        <div>
+		<h2> Choose your Pokemon </h2>
+		<img id="avatar" src="https://img.pokemondb.net/sprites/ultra-sun-ultra-moon/normal/pikachu-f.png" 
+					title="Pikachu" onclick="cPix(0)" />
+		<img id="box1" src="https://img.pokemondb.net/sprites/black-white/shiny/ninetales.png" 
+					title="Ninetales" onclick="cPix(1)" />
+		<img id="box2" src="https://img.pokemondb.net/sprites/black-white/normal/dragonite.png" 
+					title="Dragonite" onclick="cPix(2)" />
+		<img id="box3" src="https://img.pokemondb.net/sprites/x-y/normal/ivysaur.png" 
+					title="Ivysaur" onclick="cPix(3)" />
+		<img id="box4" src="https://img.pokemondb.net/sprites/x-y/shiny/wigglytuff.png" 
+					title="Wigglytuff" onclick="cPix(4)" />
+	</div>
+
+        <script>
+            /* do not forget to include comments to this script */
+            function cPix(pokemonNumber){
+                switch(pokemonNumber){//I used a switch case because its easier to code than else if structures
+                    case 1:
+                        var currentSrcBox1 = document.getElementById("box1").src; // to get the current src of box1(which is the top left small box)
+                        var currentAvatar = document.getElementById("avatar").src; // to get the current src of the avatar box
+                        var currentTitleBox1 = document.getElementById("box1").title;// to get the current title of box 1
+                        var currentTitleAvatar = document.getElementById("avatar").title;// to get the current title of the avatar box
+
+                        document.getElementById("avatar").src = currentSrcBox1 ; 
+                        /* These two codes will switch the current picture of the avatar box and the current picture of box1*/
+                        document.getElementById("box1").src = currentAvatar ;
+
+                        document.getElementById("avatar").title = currentTitleBox1 ;
+                        /* These two codes will switch the current title of the avatar box and the current title of box1*/
+                        document.getElementById("box1").title = currentTitleAvatar ;
+
+                        //the other codes are just the same, but for box2(top right), box3(bottom left), and box4(bottom right).
+                        break;
+                    case 2:
+                        var currentSrcBox2 = document.getElementById("box2").src;
+                        var currentAvatar = document.getElementById("avatar").src;
+                        var currentTitleBox2 = document.getElementById("box2").title;
+                        var currentTitleAvatar = document.getElementById("avatar").title;
+                        document.getElementById("avatar").src = currentSrcBox2 ;
+                        document.getElementById("box2").src = currentAvatar ;
+                        document.getElementById("avatar").title = currentTitleBox2 ;
+                        document.getElementById("box2").title = currentTitleAvatar ;
+                        break;
+                    case 3:
+                        var currentSrcBox3 = document.getElementById("box3").src;
+                        var currentAvatar = document.getElementById("avatar").src;
+                        var currentTitleBox3 = document.getElementById("box3").title;
+                        var currentTitleAvatar = document.getElementById("avatar").title;
+                        document.getElementById("avatar").src = currentSrcBox3 ;
+                        document.getElementById("box3").src = currentAvatar ;       
+                        document.getElementById("avatar").title = currentTitleBox3 ;
+                        document.getElementById("box3").title = currentTitleAvatar ;                 
+                        break;
+                    case 4:
+                        var currentSrcBox4 = document.getElementById("box4").src;
+                        var currentAvatar = document.getElementById("avatar").src;
+                        var currentTitleBox4 = document.getElementById("box4").title;
+                        var currentTitleAvatar = document.getElementById("avatar").title;
+                        document.getElementById("avatar").src = currentSrcBox4 ;
+                        document.getElementById("box4").src = currentAvatar;
+                        document.getElementById("avatar").title = currentTitleBox4 ;
+                        document.getElementById("box4").title = currentTitleAvatar ;    
+                        break;
+                }
+            }
+
+        </script>
+	</body>
+</html>
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> My Online Shop</title>
+    <!-- type in the necessary meta tags -->
+	<style>
+    span {color: blue; text-decoration:underline; }
+    button {width: 100px; padding: 5px; background: pink;}
+	body{background-color: cornsilk;}
+	*{font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; }
+	h1{text-align: center; font-size: 70px;}
+	h2{font-size: 20px; margin-left: 40px;}
+	li{ margin-left: 40px;}
+	p{ margin-left: 40px;}
+	#buttonRight{ margin-left: 40px; }
+
+
+
+
+
+	</style>
+
+	</head>
+<body>
+	<h1> Welcome to The French Cheese Shop </h1>
+	<h2> Please select from the following items </h2>
+	<ol>
+		<li id="brie"> Item#1: A round of Brie Cheese </li>
+		<li id="gruyere"> Item#2: One serving of Gruyere </li>
+		<li id="blue"> Item#3: Aged Blue Cheese </li>
+
+	</ol>
+	<ol>
+		<li> Item#1 price: $30.00 </li>
+		<li> Item#2 price: $50.00 </li>
+		<li> Item#3 price: $80.00 </li>
+	</ol>
+	<!-- the following will be used to display purchase information -->
+    <p> Item selected : <span id="item"> </span> </p>
+	<p> Qty bought : <span id="qty"> </span> </p>
+	<p> Amount to pay for the item: <span id="bill"> </span> </p>
+	<p> Current Total Bill <span id="tbill"> </span> </p>
+	<button id="buttonRight" onclick="order()"> Buy an Item </button>
+	<button onclick="orderClear()"> Clear </button>
+    
+    <script>
+		var brieQuantity = 0;
+		var briePrice = 0;
+		var gruyereQuantity = 0;
+		var gruyerePrice = 0;
+		var blueQuantity= 0;
+		var totalPrice = 0;
+
+		function orderClear(){
+			location.reload();//this function will reload the entire code, which will refresh all values back to 0
+		}
+
+
+		function order(){
+			var choose = parseInt(prompt("What Item Number do you wish to Buy in Our Humble Shop", ""));
+			//there is parseInt here so that the switch case won't have to read a string.
+			switch(choose){
+				case 1:
+					brieQuantity = prompt("How many Brie Cheeses would you like to order", "");
+					//the "___Quantity" to store how much cheese the user will buy
+					document.getElementById("item").innerHTML = document.getElementById("item").innerHTML + "<br>" + " A round of Brie Cheese";
+					//This statement will show the "item" span. That the user has chosen a specific kind of cheese.
+					document.getElementById("qty").innerHTML = document.getElementById("qty").innerHTML + "<br>" + brieQuantity + " Brie Cheeses";
+					//This statement shows the user using the "qty" span on how many of the specific kind of cheese the user will buy. 
+					briePrice = brieQuantity * 30;
+					//the "____Price" variable will determine how much the order of this specific cheese will cost. By multiplying the cheese price and the amount of cheese.
+					document.getElementById("bill").innerHTML = document.getElementById("bill").innerHTML + "<br> $" + briePrice + " worth of Brie Cheese";
+					//This statement will show the user using the "bill" span on how much the total amount of this specific cheese will cost. 
+					calculatePrice(briePrice);
+					//this function will calculate the final price. It will have the "____Price" variable as a parameter to add to the total amount. 
+					
+
+					// The rest of the cases is just the same but for the different cheeses.
+				break;
+				case 2: 
+					gruyereQuantity = prompt("How many Gruyere Cheeses would you like to order", "");
+					document.getElementById("item").innerHTML = document.getElementById("item").innerHTML + "<br>" + " A serving of Gruyere Cheese";
+					document.getElementById("qty").innerHTML =  document.getElementById("qty").innerHTML + "<br>" + gruyereQuantity + " Gruyere Cheeses";
+					gruyerePrice = gruyereQuantity * 50;
+					document.getElementById("bill").innerHTML = document.getElementById("bill").innerHTML + "<br> $" + gruyerePrice + " worth of Gruyere Cheese";
+					calculatePrice(gruyerePrice);
+
+				break;
+				case 3:
+					blueQuantity = prompt("How many Blue Cheeses would you like to order", "");
+					document.getElementById("item").innerHTML = document.getElementById("item").innerHTML + "<br>" + " Aged Blue Gruyere Cheese";
+					document.getElementById("qty").innerHTML =  document.getElementById("qty").innerHTML + "<br>" + blueQuantity + " Blue Cheeses";
+					bluePrice = blueQuantity * 80;
+					document.getElementById("bill").innerHTML = document.getElementById("bill").innerHTML + "<br> $" + bluePrice + " worth of Blue Cheese";
+					calculatePrice(bluePrice);
+
+				break;
+				default:
+					alert("We only accept responses from numbers 1 to 3");
+					//This alert will only appear to the user when any value or input is not the numbers {1, 2, or 3}
+				break;
+			}	
+		}
+		function calculatePrice(priceToAdd){
+			totalPrice = totalPrice + priceToAdd;
+			//this will calculate for all prices of the cheese order into the total price
+			document.getElementById("tbill").innerHTML = "$" + totalPrice;
+		}
+
+
+    </script>
+</body>
+
+</html>
+
