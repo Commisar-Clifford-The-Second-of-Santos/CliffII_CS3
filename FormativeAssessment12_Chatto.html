@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Table Maker</title>
+
+        <style>
+
+            body{
+                background-color: beige;
+                text-align: center;
+            }
+            td{
+                background-color: darkblue;
+                font-size: 20px;
+                color: white;
+                border: 2px solid beige;
+                padding: 10px;
+            
+            }
+            table{
+                border: 2px solid black;
+            }
+            table, td{
+                margin-left:auto;
+                margin-right:auto;
+            }
+            *{
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+            }
+            button{
+                margin: 30px;
+                font-size: 20px;
+                font-weight: bold;
+                padding: 10px;
+                border-radius: 30px;
+                background-color: red;
+                color:aliceblue;
+                border: 0px;
+            }
+            button:hover{
+                background-color: rgb(255, 151, 151);
+            }
+            button:active{
+                background-color: red;
+                font-size: 21px;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <p>Enter the amount of rows in the table</p>
+        <input type="text" placeholder="Enter Rows" id="rowVal">
+        <p>Enter the amount of columms in the table</p>
+        <input type="text" placeholder="Enter Colummns" id="colVal">
+        <br>
+        <button onclick="create()">Create</button>
+        <br>
+        <div id="table"></div>        
+
+    </body>
+
+    <script>
+        var mTable;
+        function create(){
+
+        if(mTable){
+        mTable.remove();
+        }
+
+
+        var row = document.getElementById('rowVal').value;
+        var col = document.getElementById('colVal').value;
+            if(row < 2 || row > 10 || col < 2 || col > 10){
+                alert("Please enter numbers between 2 and 10");
+            }else{
+                mTable = document.createElement('table');
+                document.body.appendChild(mTable);
+                for(var x = 1; x <= row; x++){
+                    var tablerow = document.createElement('tr');
+                    for(var y = 1; y <= col; y++){
+                        var tablecell = document.createElement('td');
+                        tablecell.innerHTML = y*x;
+                        tablerow.appendChild(tablecell);
+                    }
+                    mTable.appendChild(tablerow);
+                }
+            }
+        }
+    </script>
+
+</html>
