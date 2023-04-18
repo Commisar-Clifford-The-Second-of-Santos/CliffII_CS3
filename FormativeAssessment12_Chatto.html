@@ -17,12 +17,19 @@
                 padding: 10px;
             
             }
+
             table{
                 border: 2px solid black;
             }
             table, td{
                 margin-left:auto;
                 margin-right:auto;
+            }
+            td:active{
+                background-color: rgb(79, 79, 172);
+                font-size: 20px;
+                padding: 10px;
+                transition: 0.05s;
             }
             td:hover{
                 background-color: rgb(79, 79, 172);
@@ -46,10 +53,12 @@
             }
             button:hover{
                 background-color: rgb(255, 151, 151);
+                transition:0.3s;
             }
             button:active{
-                background-color: red;
-                font-size: 21px;
+            color: rgb(136,136,136);
+            background-color:red;
+            transition:0.3s;
             }
 
         </style>
@@ -58,8 +67,8 @@
     <body>
         <p>Enter the amount of rows in the table</p>
         <input type="text" placeholder="Enter Rows" id="rowVal">
-        <p>Enter the amount of columms in the table</p>
-        <input type="text" placeholder="Enter Colummns" id="colVal">
+        <p>Enter the amount of columns in the table</p>
+        <input type="text" placeholder="Enter Columns" id="colVal">
         <br>
         <button onclick="create()">Create</button>
         <br>
