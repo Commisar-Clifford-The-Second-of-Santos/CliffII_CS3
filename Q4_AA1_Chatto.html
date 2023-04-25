@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="text" placeholder="Enter mRNA Sequence" id="theInput">
+        <button id="computeButton" onclick="compute()">Compute</button>
+    </body>
+    <script>
+        function compute(){
+        var input = document.getElementById('theInput').value;
+        var startplace = input.indexOf("AUG");
+
+
+        var newArr = [];
+        var x = 0;
+        var group;
+       while(x > -1){
+            group = input.slice(startplace, startplace+3);
+            if(group == "UGA" || group == "UAG" || group == "UAA"){
+                newArr[x] = group;
+                console.log(newArr);
+                break;
+            }
+            newArr[x] = group;
+            console.log(newArr);
+            startplace = startplace+3;    
+            x++;
+       }
+       var arrayLength = x;
+       var y = 0;
+
+       document.write("[" + newArr + "]"+ "<br>");
+
+       while(y <= arrayLength){
+        var sequence = newArr[y];
+
+        document.write(sequence + " --> ");
+        switch(sequence){
+            case "UUA":
+            case "UUG":
+            case "CUU":
+            case "CUC":
+            case "CUA":
+            case "CUG":
+                document.write("Leu");
+                break;
+            case "UUU":
+            case "UUC":
+                document.write("Phe");
+                break;
+            case "AUU":
+            case "AUC":
+            case "AUA":
+                document.write("Ile");
+                break;
+            case "AUG":
+                document.write("Met");
+                break;
+            case "GUU":
+            case "GUC":
+            case "GUA":
+            case "GUG":
+                document.write("Val");
+                break;
+            case "UCU":
+            case "UCC":
+            case "UCA":
+            case "UCG":
+            case "AGU":
+            case "AGC":
+                document.write("Ser");
+                break;
+            case "CCU":
+            case "CCC":
+            case "CCA":
+            case "CCG":
+                document.write("Pro");
+                break;
+            case "ACU":
+            case "ACC":
+            case "ACA":
+            case "ACG":
+                document.write("Thr");
+                break;
+            case "GCU":
+            case "GCC":
+            case "GCA":
+            case "GCG":
+                document.write("Ala");
+                break; 
+            case "UAU":
+            case "UAC":
+                document.write("Tyr");
+                break;
+            case "CAU":
+            case "CAC":
+                document.write("His");
+                break;
+            case "CAA":
+            case "CAG":
+                document.write("Gln");
+                break;
+            case "AAU":
+            case "AAC":
+                document.write("Asn");
+                break;
+            case "AAA":
+            case "AAG":
+                document.write("Lys");
+                break;
+            case "GAU":
+            case "GAC":
+                document.write("Asp");
+                break;
+            case "GAA":
+            case "GAG":
+                document.write("Glu");
+                break;
+            case "UGU":
+            case "UGC":
+                document.write("Cys");
+                break;
+            case "UGG":
+                document.write("Trp");
+                break;
+            case "CGU":
+            case "CGC":
+            case "CGA":
+            case "CGG":
+            case "AGA":
+            case "AGG":
+                document.write("Arg");
+                break;
+            case "GGU":
+            case "GGC":
+            case "GGA":
+            case "GGG":
+                document.write("Gly");
+                break;
+            default:
+                document.write("STOP");
+                break;
+        }
+        document.write("<br>")
+        y = y+1;
+      }
+    }
+    </script>
+</html>
