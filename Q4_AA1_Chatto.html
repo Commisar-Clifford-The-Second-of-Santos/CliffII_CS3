@@ -20,11 +20,9 @@
             group = input.slice(startplace, startplace+3);
             if(group == "UGA" || group == "UAG" || group == "UAA"){
                 newArr[x] = group;
-                console.log(newArr);
                 break;
             }
             newArr[x] = group;
-            console.log(newArr);
             startplace = startplace+3;    
             x++;
        }
