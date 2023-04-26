@@ -11,10 +11,12 @@
         function compute(){
         var input = document.getElementById('theInput').value;
         var startplace = input.indexOf("AUG");
+        var stringLength = input.length;
 
 
         var newArr = [];
         var x = 0;
+        var i = 0;
         var group;
        while(x > -1){
             group = input.slice(startplace, startplace+3);
@@ -22,9 +24,14 @@
                 newArr[x] = group;
                 break;
             }
+            if(i > stringLength){
+                document.write("There was no stop sequence detected");
+                return;
+            }
             newArr[x] = group;
             startplace = startplace+3;    
             x++;
+            i = i+3;
        }
        var arrayLength = x;
        var y = 0;
