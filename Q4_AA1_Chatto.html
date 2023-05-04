@@ -3,13 +3,11 @@
     <head>
 
     </head>
-    <body>
-        <input type="text" placeholder="Enter mRNA Sequence" id="theInput">
-        <button id="computeButton" onclick="compute()">Compute</button>
+    <body onload="compute()">
     </body>
     <script>
         function compute(){
-        var input = document.getElementById('theInput').value;
+        var input = prompt("Input mRNA Sequence", "");
         var startplace = input.indexOf("AUG");
         var stringLength = input.length;
 
