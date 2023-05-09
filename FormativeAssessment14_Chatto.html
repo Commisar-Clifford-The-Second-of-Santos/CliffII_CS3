@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Recruitment Form</title>
+        <style>
+            body{
+                background-color: beige;
+            }
+            *{
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            fieldset{
+                border-radius: 20px;
+                border-color: blue;
+                background-color: blanchedalmond;
+            }
+            #submit{
+                margin-top: 30px;
+            }
+            input, select,textarea{
+                border-radius: 10px;
+
+                height: 30px;
+                font-size:  15px;
+                border-width:1px;
+            }
+            label, p{
+                font-size:  15px;
+                border-left: solid 5px darkblue;
+                padding-left:4px;
+            }
+            #buttons{
+                background-color: cornflowerblue;
+                color:white;
+                border:none;
+            }
+            #buttons:hover{
+                background-color: rgb(47, 101, 201);
+                transition:0.3s;
+            }
+            #buttons:active{
+                background-color:cornflowerblue;
+                transition:0.3s;
+            }
+            #title,legend{
+                border-left:none;
+                text-align: center;
+                font-size:  30px;
+                color: white;
+                background-color: darkblue;
+                border-radius: 10px;
+                border-color: aliceblue;
+                border-top: dashed 4px;
+                border-bottom: dashed 4px;
+                padding-top: 3px;
+                padding-bottom: 3px;
+
+
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <form onsubmit="return submitted()">
+            <fieldset id="fieldset">
+            <p id="title">STUDENT RECRUITMENT FORM</p>
+            <label>Name:</label>
+                <input type="text" id="name" name="realName" onfocus="focused(1)" onblur="blurred(1)">
+            <br><br>
+            <label>Account Username:</label>
+                <input type="text" id="username" name="userName" onfocus="focused(2)" onblur="blurred(2)">
+                <br><br>
+
+            <label>Pick Gender:</label>
+                <select name="genderOptions" id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Prefer not to Mention">Prefer not to Mention</option>
+                </select>
+            <br><br>
+            <label>Input Password:</label>
+                <input type="password" id="password" name="thePassword" onfocus="focused(3)" onblur="blurred(3)">
+            <br><br>
+            <label>Give Email Adress:</label>
+                <input type="email" id="email" onfocus="focused(4)" onblur="blurred(4)">
+            <br><br>
+            <label>Permanent Adress</label>
+                <input type="text"id="adress" onfocus="focused(5)" onblur="blurred(5)">
+            <br><br>
+            <label>Reasons for why you wish to Join:</label>
+                <textarea id="reason" onfocus="focused(6)" onblur="blurred(6)"></textarea>
+            <br>
+            <br>
+        <input id="buttons" type="submit" value="Submit To Cloud">
+        <input id="buttons"type="reset" value="Reset Form">
+        </fieldset>
+        <fieldset id="submit">
+            <legend>Submitted Information</legend>
+        <p  id="submittedName"></p>
+        <p  id="submittedUsername"></p>
+        <p  id="submittedGender"></p>
+        <p  id="submittedPassword"></p>
+        <p  id="submittedEmail"></p>
+        <p  id="submittedAdress"></p>
+        <p id="submittedReason"></p>
+        </fieldset>
+
+
+
+        </form>
+
+    </body>
+    <script>
+        
+            function blurred(current){
+            var z;
+                switch(current){
+                    case 1: z = "name";
+                    break;
+                    case 2: z = "username";
+                    break;
+                    case 3: z = "password";
+                    break;
+                    case 4: z = "email";
+                    break;
+                    case 5: z = "adress";
+                    break;
+                    case 6: z = "reason";
+                    break;
+                }
+                
+                
+                var x = document.getElementById(z).value;
+                var y = document.getElementById(z);
+
+                if(x ==""){
+                    y.style.border = "solid 3px red ";
+
+                    y.style.backgroundColor = "#edbdbb";
+
+                    if(z == "password"){
+                        return;//having "*Required" on password input element looks bad"
+                    }
+                    y.placeholder = "*Required";
+                    
+
+                }else{
+                    y.style.border = "solid 3px green";
+                    y.style.backgroundColor = "#bbe2ed";
+
+
+                }
+            }
+            function focused(current){
+
+            }
+
+            function submitted(){
+                var name = document.getElementById("name").value;
+                var username = document.getElementById("username").value;
+                var gender = document.getElementById("gender").value;
+                var password = document.getElementById("password").value;
+                var email = document.getElementById("email").value;
+                var adress = document.getElementById("adress").value;
+                var reason = document.getElementById("reason").value;
+
+                document.getElementById("submittedName").innerHTML = "Name: " + name;
+                document.getElementById("submittedUsername").innerHTML = "Username: " + username;
+                document.getElementById("submittedGender").innerHTML = "Gender: " + gender;
+                document.getElementById("submittedPassword").innerHTML = "Password: " + password;
+                document.getElementById("submittedEmail").innerHTML = "Email: " + email;
+                document.getElementById("submittedAdress").innerHTML = "Permanent Adress: " + adress;
+                document.getElementById("submittedReason").innerHTML = "Reasons for why you wish to Join: " + reason;
+
+                return false;
+            }
+        
+    </script>
+</html>
