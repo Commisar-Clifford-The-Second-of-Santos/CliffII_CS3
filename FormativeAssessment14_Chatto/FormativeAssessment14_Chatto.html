@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="HTML Forms FA14">
+        <meta name="keywords" content="FA14">
+        <meta name="author" content="Cliff E. Chatto II">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <title>Sign-In: Recruitment</title>
+        <style type="text/css">
+            *{
+                color: rgb(39, 39, 39);
+                font-family: Arial, Helvetica, sans-serif;
+                border:none;
+                
+                
+            }
+
+            div, #fieldset{
+                width: 430px;
+                background-color: rgb(255, 255, 255);
+                margin: 0 auto;
+                border: none;
+                margin-top:100px;
+                box-shadow: 0 6px 10px 0 rgba(164, 164, 164, 0.942), 0 8px 22px rgba(170, 170, 170, 0.751);
+                padding:0;
+            }
+            #submitted{
+                border: none;
+                width: 430px;
+                margin-top:3px;
+                text-indent: 20px;
+            }
+            input, select, textarea{
+                height: 40px;
+                width:395px;
+                background-color: rgb(245, 245, 245);
+                margin:15px;
+                margin-top: 0px;
+            }
+            label{
+                margin:15px;
+                margin-bottom: 0px;
+                color: rgb(5, 5, 147);
+                font-weight: bold;
+
+            }
+            #Sbuttons, #Rbuttons{
+                background-color: rgb(48, 78, 168);
+                width:100px;
+                color: aliceblue;
+                box-shadow: 0 4px 8px 0 rgba(64, 120, 184, 0.942), 0 6px 20px rgba(57, 27, 195, 0.647);
+            
+
+            }
+            #Rbuttons{
+                float:left;
+            }
+            #Sbuttons{
+                float: right;
+                width:150px;
+            }
+            #Rbuttons:hover, #Sbuttons:hover{
+                background-color: rgb(59, 100, 221);
+                transition: 0.5s;
+            }
+            #Rbuttons:active, #Sbuttons:active{
+                box-shadow: none;
+                transition: 0.2s;
+            }
+            
+            #title{
+                text-align: center;
+            }
+            #option{
+                border-radius: 0px;
+                color:green;
+            }
+            body{
+                background-image: url("1background.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                overflow-x: hidden;
+            }
+            #photo{
+                box-shadow:0px 0px;
+                position: inherit;
+                z-index: 10;
+                background-image: url("2picture.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                height:150px;
+                width:431px;
+                margin:0px;
+                padding:0px;
+            }
+            #submittedName, #submittedUsername, #submittedGender, #submittedPassword, #submittedEmail, #submittedAdress, #submittedReason{
+                max-width: 400px;
+                color: rgb(5, 5, 147);
+                font-weight: bold;
+                margin-left: 20px;
+            }
+            #signin, #r,#line,#info{
+                position: absolute;
+                z-index: 3;
+                font-size: 40px;
+                color:rgb(255, 255, 255);
+                top: 100px;
+                margin: 30px 0px 0px 30px;
+                text-shadow: 2px 2px 8px #aeaeae;
+            }
+            #line{
+                width: 200px;
+                margin-top: 78px;
+                height:1px;
+                background-color: white;
+
+                
+            }
+            #r{
+                font-size: 30px;
+                top: 150px;
+            }
+            #info{
+                top: 1040px;
+                left:555px;
+                z-index: 6;
+            }
+            #photo2{
+                z-index: 5;
+                margin-top: 10px;
+                margin-left:99999999px;
+                height:10px;    
+                position: absolute;
+                
+            }
+            legend{
+                color:rgb(255, 255, 255);
+                text-shadow: 4px 4px 10px #000000;
+                text-align: center;
+
+            }
+        </style>
+    </head>
+    <body>
+
+        <form onsubmit="return submitted()">
+            <fieldset id="fieldset">
+                <legend>Sign In Recruitment Form for Aspiring Architects</legend>
+
+                <div id="photo"></div>
+                <p id="title"></p>
+                <p id="signin">SIGN IN</p>
+                <hr id="line">
+                <p id="r">Recruitment</p>
+                <label>Name:</label><br>
+                    <input type="text" id="name" name="realName" onfocus="focused(1)" onblur="blurred(1)">
+                <br><br>
+
+                <label>Account Username:</label><br>
+                    <input type="text" id="username" name="userName" onfocus="focused(2)" onblur="blurred(2)">
+                    <br><br>
+
+                <label>Gender:</label><br>
+                    <select name="genderOptions" id="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Prefer not to Mention">Prefer not to Mention</option>
+                    </select>
+                <br><br>
+
+                <label>Input Password:</label><br>
+                    <input type="password" id="password" name="thePassword" onfocus="focused(3)" onblur="blurred(3)">
+                <br><br>
+
+                <label>Email Address:</label><br>
+                    <input type="email" id="email" onfocus="focused(4)" onblur="blurred(4)">
+                <br><br>
+
+                <label>Permanent Address:</label><br>
+                    <input type="text"id="adress" onfocus="focused(5)" onblur="blurred(5)">
+                <br><br>
+
+                <label>Reasons for why you wish to Join:</label><br>
+                    <textarea id="reason" onfocus="focused(6)" onblur="blurred(6)"></textarea>
+                <br><br>
+
+            <input id="Sbuttons" type="submit" value="Submit Form">
+            <input id="Rbuttons"type="reset" value="Reset Form">
+        </fieldset>
+        <img id="photo2" src="photo2.jpeg">
+        <p id="info"></p>
+        <br>
+        <div id="submitted">
+        <p  id="submittedName"></p>
+        <p  id="submittedUsername"></p>
+        <p  id="submittedGender"></p>
+        <p  id="submittedPassword"></p>
+        <p  id="submittedEmail"></p>
+        <p  id="submittedAdress"></p>
+        <p id="submittedReason"></p>
+        </div>
+        </form>
+
+    </body>
+    <script>
+        
+            function blurred(current){
+            var z;
+                switch(current){
+                    case 1: z = "name";
+                    break;
+                    case 2: z = "username";
+                    break;
+                    case 3: z = "password";
+                    break;
+                    case 4: z = "email";
+                    break;
+                    case 5: z = "adress";
+                    break;
+                    case 6: z = "reason";
+                    break;
+                }
+                
+                
+                var x = document.getElementById(z).value;
+                var y = document.getElementById(z);
+
+                if(x ==""){
+                    y.style.border = "solid 1px red ";
+
+                    y.style.backgroundColor = "#edbdbb";
+
+                    y.placeholder = "*Required";
+                    
+
+                }else{
+                    y.style.border = "solid 1px green";
+                    y.style.backgroundColor = "#bbe2ed";
+
+
+                }
+            }
+            function focused(current){
+                var z;
+                var place;
+                switch(current){
+                    case 1: z = "name";
+                    place = "Input Actual Name";
+                    break;
+                    case 2: z = "username";
+                    place = "Input Online Username";
+                    break;
+                    case 3: z = "password";
+                    place = "Input a Strong Password";
+                    break;
+                    case 4: z = "email";
+                    place = "Input Professional Email Address";
+                    break;
+                    case 5: z = "adress";
+                    place = "Input Permanent Address";
+                    break;
+                    case 6: z = "reason";
+                    place = "Input your Reason for Joining this Training Program";
+                    break;
+                }
+                
+                
+                var x = document.getElementById(z).value;
+                var y = document.getElementById(z);
+
+                if(x ==""){
+                    y.style.border = "solid 1px red ";
+
+                    y.style.backgroundColor = "#d5e4f5";
+
+                    
+                    y.placeholder = place;
+                    
+
+                }
+            }
+
+            function submitted(){
+                var name = document.getElementById("name").value;
+                var username = document.getElementById("username").value;
+                var gender = document.getElementById("gender").value;
+                var password = document.getElementById("password").value;
+                var email = document.getElementById("email").value;
+                var adress = document.getElementById("adress").value;
+                var reason = document.getElementById("reason").value;
+                var s = document.getElementById("submitted");
+                var picture = document.getElementById("photo2").style;
+
+                document.getElementById("submittedName").innerHTML = "|NAME:   " +"<br>"+ name;
+                document.getElementById("submittedUsername").innerHTML = "|USERNAME:   " +"<br>"+ username;
+                document.getElementById("submittedGender").innerHTML = "|GENDER:   "+"<br>" + gender;
+                document.getElementById("submittedPassword").innerHTML = "|PASSWORD:   " +"<br>"+ password;
+                document.getElementById("submittedEmail").innerHTML = "|EMAIL:   " +"<br>"+ email;
+                document.getElementById("submittedAdress").innerHTML = "|PERMANENT ADDRESS:   " +"<br>"+ adress;
+                document.getElementById("submittedReason").innerHTML = "|REASONS WHY YOU WISH TO JOIN:   "+"<br>" + reason ;
+                document.getElementById("info").innerHTML = "INFO";
+                s.style.paddingTop = "150px";
+                picture.marginLeft = "537px";
+                picture.marginTop = "21.5px";
+                picture. height = "150px";
+                picture.width = "429px";
+
+                return false;
+            }
+        
+    </script>
+</html>
